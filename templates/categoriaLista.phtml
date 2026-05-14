@@ -1,0 +1,32 @@
+<?php
+require_once 'templates/layout/header.phtml';
+?>
+<main class="container mt-4">
+    <h1 class="mb-4">Nombre Categoria</h1>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <?php foreach ($vehiculos as $vehiculo): ?>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="<?= !empty($vehiculo->imagen_url) ? $vehiculo->imagen_url : 'https://via.placeholder.com/400x200?text=Sin+Imagen' ?>" 
+                         class="card-img-top" 
+                         style="height: 200px; object-fit: cover;"
+                         alt="<?= $vehiculo->modelo ?>">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $vehiculo->modelo ?></h5>
+                        <p class="card-text text-muted mb-1">Año: <?= $vehiculo->anio ?></p>
+                        <h4 class="text-primary">$<?= number_format($vehiculo->precio, 0, ',', '.') ?></h4>
+                    </div>
+                    
+                    <div class="card-footer bg-transparent border-top-0">
+                        <a href="vehiculo/<?= $vehiculo->id ?>" class="btn btn-outline-dark w-100">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</main>
+<?php
+require_once 'templates/layout/footer.phtml';
+?>

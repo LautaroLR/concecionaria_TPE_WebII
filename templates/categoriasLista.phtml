@@ -1,0 +1,26 @@
+<?php
+require_once 'templates/layout/header.phtml';
+?>
+<main class="container mt-4">
+    <h1 class="mb-4">Categorias</h1>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <?php foreach ($categorias as $categoria): ?>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $categoria->nombre ?></h5>
+                        <p class="card-text text-muted mb-1">Descripcion: <?= $categoria->descripcion ?></p>
+                    </div>
+                    
+                    <div class="card-footer bg-transparent border-top-0">
+                        <a href="categoria/<?php echo $categoria->id_categoria ?>" class="btn btn-outline-dark w-100">Ver</a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</main>
+<?php
+require_once 'templates/layout/footer.phtml';
+?>
