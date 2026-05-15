@@ -30,6 +30,31 @@
     case 'categoria':
         $controller=new categoriaController();
         $controller->listarCategoria($params[1]);
-        break;    
+        break;
+
+    case'categoriaAgregar':
+        $controller=new categoriaController();
+        $controller->categoriaNueva();
+        break;
+
+    case'guardarCategoria':
+        $controller=new categoriaController();
+        $controller->guardarCategoria();
+        break;
+    
+    case'eliminarCategoria':
+        $controller=new categoriaController();
+        $controller->eliminarCategoria($params[1]);
+        break;
+    
+    case'editarCategoria':
+        $controller=new categoriaController();
+        $controller->editarCategoria($params[1]);
+        break;
+
+    case 'modificarCategoria':
+        $controller=new categoriaController();
+        $controller->modificarCategoria($params[1]);
+        break;
 
     }

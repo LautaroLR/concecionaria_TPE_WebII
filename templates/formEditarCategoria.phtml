@@ -1,0 +1,35 @@
+<?php
+require_once 'templates/layout/header.phtml';
+?>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 shadow-sm p-4 border rounded bg-light">
+            <h2 class="mb-4 text-center">Nueva Categoría</h2>
+            
+            <form action="modificarCategoria/<?php echo $categoria->id_categoria?>" method="post">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label font-weight-bold">Nombre de la categoría</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $categoria->nombre ?>" placeholder="Ej: SUV, Sedán, Pickup" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="nombre" class="form-label font-weight-bold">Imagen URL</label>
+                    <input type="text" class="form-control" id="imagen" name="imagen" value="<?php echo $categoria->imagen_url ?>" placeholder="URL..." required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Descripción de la categoría</label>
+                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Detalles de la categoría..." required><?php echo $categoria->descripcion ?></textarea>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="home" class="btn btn-outline-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Guardar Categoría</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php   
+require_once 'templates/layout/footer.phtml';
+?>

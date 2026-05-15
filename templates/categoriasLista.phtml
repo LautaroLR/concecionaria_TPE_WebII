@@ -8,17 +8,50 @@ require_once 'templates/layout/header.phtml';
         <?php foreach ($categorias as $categoria): ?>
             <div class="col">
                 <div class="card h-100 shadow-sm">
+                    <img src="<?= !empty($categoria->imagen_url) ? $categoria->imagen_url : 'https://via.placeholder.com/400x200?text=Sin+Imagen' ?>" 
+                         class="card-img-top" 
+                         style="height: 200px; object-fit: cover;"
+                         alt="<?= $categoria->nombre ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?= $categoria->nombre ?></h5>
                         <p class="card-text text-muted mb-1">Descripcion: <?= $categoria->descripcion ?></p>
                     </div>
-                    
+
                     <div class="card-footer bg-transparent border-top-0">
-                        <a href="categoria/<?php echo $categoria->id_categoria ?>" class="btn btn-outline-dark w-100">Ver</a>
+                        <a href="categoria/<?php echo $categoria->id_categoria ?>"
+                            class="btn btn-outline-primary w-100 mb-2">Ver Vehículos</a>
+
+                        <div class="d-flex gap-2">
+                            <a href="editarCategoria/<?php echo $categoria->id_categoria ?>"
+                                class="btn btn-outline-warning flex-fill">
+                                Editar
+                            </a>
+
+                            <a href="eliminarCategoria/<?php echo $categoria->id_categoria ?>"
+                                class="btn btn-outline-danger flex-fill"
+                                onclick="return confirm('¿Estás seguro de que deseas eliminar esta categoría?')">
+                                Eliminar
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         <?php endforeach; ?>
+         <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Agregar Categoria</h5>
+                    </div>
+
+                    <div class="card-footer bg-transparent border-top-0">
+                        <a href="categoriaAgregar"
+                            class="btn btn-outline-primary w-100 mb-2">Agregar categoria</a>
+
+                        
+                    </div>
+                </div>
+            </div>
+
     </div>
 </main>
 <?php
